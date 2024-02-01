@@ -1,0 +1,319 @@
+/*main > .container {*/
+/*    padding: 70px 15px 20px;*/
+/*}*/
+
+/*.footer {*/
+/*    background-color: #f5f5f5;*/
+/*    font-size: .9em;*/
+/*    height: 60px;*/
+/*}*/
+
+/*.footer > .container {*/
+/*    padding-right: 15px;*/
+/*    padding-left: 15px;*/
+/*}*/
+
+/*.not-set {*/
+/*    color: #c55;*/
+/*    font-style: italic;*/
+/*}*/
+
+/*!* add sorting icons to gridview sort links *!*/
+/*a.asc:after, a.desc:after {*/
+/*    content: '';*/
+/*    left: 3px;*/
+/*    display: inline-block;*/
+/*    width: 0;*/
+/*    height: 0;*/
+/*    border: solid 5px transparent;*/
+/*    margin: 4px 4px 2px 4px;*/
+/*    background: transparent;*/
+/*}*/
+
+/*a.asc:after {*/
+/*    border-bottom: solid 7px #212529;*/
+/*    border-top-width: 0;*/
+/*}*/
+
+/*a.desc:after {*/
+/*    border-top: solid 7px #212529;*/
+/*    border-bottom-width: 0;*/
+/*}*/
+
+/*.grid-view th {*/
+/*    white-space: nowrap;*/
+/*}*/
+
+/*.hint-block {*/
+/*    display: block;*/
+/*    margin-top: 5px;*/
+/*    color: #999;*/
+/*}*/
+
+/*.error-summary {*/
+/*    color: #a94442;*/
+/*    background: #fdf7f7;*/
+/*    border-left: 3px solid #eed3d7;*/
+/*    padding: 10px 20px;*/
+/*    margin: 0 0 15px 0;*/
+/*}*/
+
+/*!* align the logout "link" (button in form) of the navbar *!*/
+/*.nav li > form > button.logout {*/
+/*    padding-top: 7px;*/
+/*    color: rgba(255, 255, 255, 0.5);*/
+/*}*/
+
+/*@media(max-width:767px) {*/
+/*    .nav li > form > button.logout {*/
+/*        display:block;*/
+/*        text-align: left;*/
+/*        width: 100%;*/
+/*        padding: 10px 0;*/
+/*    }*/
+/*}*/
+
+/*.nav > li > form > button.logout:focus,*/
+/*.nav > li > form > button.logout:hover {*/
+/*    text-decoration: none;*/
+/*    color: rgba(255, 255, 255, 0.75);*/
+/*}*/
+
+/*.nav > li > form > button.logout:focus {*/
+/*    outline: none;*/
+/*}*/
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+body {
+
+}
+
+
+table {
+	border-width: 0px;
+	border-spacing: 0px;
+}
+
+
+header {
+	background-color: #2F2E2E;
+	height:64px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 60px;
+	position: fixed;
+}
+.hatbuttons {
+	background-color: #00000000;
+	border: 0;
+	color: white;
+	font-size: 20px;
+	font-family: 'Open Sans', sans-serif;
+	transition-duration: 0.3s;
+}
+.hatbuttons:hover {
+	color: lightgrey;
+}
+.name {
+
+	align-items: center;
+	background-image: url("/sas/Car.jpg");
+	background-attachment: fixed;
+	width: 100%;
+	display: flex;
+	padding: 70px 0 0 0;
+	flex-direction: column;
+}
+
+
+
+.media {
+	margin: 30px;
+	margin-top: 350px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+}
+
+.service {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 15px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 650px;
+	width: 100%;
+	padding: 100px;
+	background-color: darkgray;
+	flex-direction: column;
+	padding-top: 50px;
+}
+.hline{
+	width: 60px;
+	height: 5px;
+	background-color: white;
+}
+
+.servbg {
+	background-image: url("sas/servbg.webp");
+}
+.servtypes {
+	padding: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.servtype {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	width: 150px;
+	text-align: center;
+	gap: 10px;
+	margin: 0 50 0 50;
+}
+
+.works {
+	color: grey;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	background-color: white;
+	width: 100%;
+	height: 970px;
+
+}
+
+.workstable {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	background-color: white;
+	margin: 0;
+	padding: 0;
+
+}
+
+.workline {
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: row;
+}
+
+.about{
+	width: 100%;
+	height: 673px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.aboutins{
+	width: 662px;
+	height: 457px;
+	background-color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 50px;
+}
+
+.abyss{
+	height: 1200px;
+	width: 100%;
+	background-color: grey;
+	padding: 20%;
+	margin-bottom: 0;
+}
+
+.formsthing{
+	width: 100%;
+	height: 750px;
+	background-color: lightgray;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+
+}
+
+footer {
+	color: black;
+	height: 162px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	background-color: grey;
+	flex-direction: column;
+	padding: 0;
+
+}
+
+.media {
+	border: 0;
+	margin: 0;
+	padding:0;
+}
+
+h1 {
+	font-family: sans-serif;
+	font-size: 60px;
+	font-weight: bold;
+}
+
+h2 {
+	font-family: 'Open Sans', sans-serif;
+	letter-spacing: 10px;
+	font-size: 18px;
+}
+
+h3 {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 40px;
+}
+
+h4 {
+	font-size: 22px;
+	font-family: sans-serif;
+}
+
+.parallax {
+	perspective: 1px;
+	height: 100vh;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+.parallax__layer {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+.parallax__layer--base {
+	transform: translateZ(0);
+}
+.parallax__layer--back {
+	transform: translateZ(-1px);
+}
+
+.
+
