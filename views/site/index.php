@@ -4,14 +4,13 @@
 /** @var yii\web\View $this */
 
 use app\assets\AppAsset;
-use app\models\Stock;
-use MongoDB\BSON\ObjectId;
-use yii\mongodb\ActiveRecord;
+
+
 use yii\validators\BooleanValidator;
 use yii\validators\NumberValidator;
 use yii\validators\StringValidator;
 
-$this->title = 'Три товарищащ';
+$this->title = 'Три товарища';
 ?>
 <div class="site-index">
 
