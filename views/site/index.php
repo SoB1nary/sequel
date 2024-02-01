@@ -10,7 +10,7 @@ use yii\validators\BooleanValidator;
 use yii\validators\NumberValidator;
 use yii\validators\StringValidator;
 
-$this->title = 'Три товарища';
+$this->title = 'Три товрища';
 ?>
 <div class="site-index">
 
