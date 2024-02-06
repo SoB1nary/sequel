@@ -5,7 +5,12 @@ namespace app\models;
 use Yii;
 use yii\base\Exception;
 use yii\base\NotSupportedException;
+use yii\behaviors\TimestampBehavior;
+use yii\db\ActiveRecord;
+use yii\db\BaseActiveRecord;
+use yii\db\Expression;
 use yii\web\IdentityInterface;
+
 
 /**
  * This is the model class for table "users".
@@ -20,12 +25,26 @@ use yii\web\IdentityInterface;
  */
 class Users extends \yii\db\ActiveRecord implements IdentityInterface
 {
+    public function behaviors(): array
+    {
+       return [
+           'timestamp' => [
+               'class'=> TimestampBehavior::class,
+               'attributes'=> [
+                   BaseActiveRecord::EVENT_BEFORE_INSERT => ['created_at', 'updated_at'],
+                   BaseActiveRecord::EVENT_BEFORE_UPDATE => ['updated_at'],
+               ],
+               'value' =>new Expression('NOW()'),
+           ],
+       ];
+    }
+
     /**
      * {@inheritdoc}
      */
     public static function tableName(): string
     {
-        return 'users';
+        return '{{%users}}';
     }
 
     /**
@@ -78,7 +97,11 @@ class Users extends \yii\db\ActiveRecord implements IdentityInterface
       throw new NotSupportedException();
     }
 
-    public function getId()
+    public static function findByUsername(string $username): ?IdentityInterface
+    {
+        return static::findOne(['username'=>$username]);
+    }
+    public function getId(): int
     {
         return $this->id;
     }
