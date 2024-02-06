@@ -18,12 +18,12 @@ class m240206_044014_add_admin extends Migration
             'email' => 'admin@admin.com',
             'auth_key' => Yii::$app->security->generateRandomString(),
             'password' => Yii::$app->security->generatePasswordHash('amogus'),
-            'created_at' => date('H:i:s d.m.Y'),
-            'updated_at' => date('H:i:s d.m.Y'),
+            'created_at' => date('Y-m-d H-i-s'),
+            'updated_at' => date('Y-m-d H-i-s'),
         ]);
     }
 
-    /**
+    /**php
      * {@inheritdoc}
      */
     public function safeDown()

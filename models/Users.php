@@ -20,24 +20,11 @@ use yii\web\IdentityInterface;
  * @property string $password
  * @property string $auth_key
  * @property string $email
- * @property string $created_at
- * @property string $updated_at
+
  */
 class Users extends \yii\db\ActiveRecord implements IdentityInterface
 {
-    public function behaviors(): array
-    {
-       return [
-           'timestamp' => [
-               'class'=> TimestampBehavior::class,
-               'attributes'=> [
-                   BaseActiveRecord::EVENT_BEFORE_INSERT => ['created_at', 'updated_at'],
-                   BaseActiveRecord::EVENT_BEFORE_UPDATE => ['updated_at'],
-               ],
-               'value' =>new Expression('NOW()'),
-           ],
-       ];
-    }
+
 
     /**
      * {@inheritdoc}
@@ -53,7 +40,7 @@ class Users extends \yii\db\ActiveRecord implements IdentityInterface
     public function rules(): array
     {
         return [
-            [['username', 'password', 'auth_key', 'email', 'created_at', 'updated_at'], 'required'],
+            [['username', 'password', 'auth_key', 'email',], 'required'],
             [['created_at', 'updated_at'], 'safe'],
             [['username', 'password', 'auth_key', 'email'], 'string', 'max' => 255],
         ];
