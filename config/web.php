@@ -1,5 +1,5 @@
 <?php
-
+use app\models\Users;
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
 
@@ -20,7 +20,7 @@ $config = [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
-            'identityClass' => 'app\models\User',
+            'identityClass' => Users::class,
             'enableAutoLogin' => true,
         ],
         'errorHandler' => [
