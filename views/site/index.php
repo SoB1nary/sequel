@@ -19,8 +19,7 @@ $this->title = Yii::t('app','Три товрища');
     <div class="body-content">
 
         <div class="name">
-            <img src="<?= AppAsset::register($this)->baseUrl."/
-            sas/logo.png"?>" style="height: 200px; width: 200px; margin-bottom: 50px;">
+            <img src="<?= AppAsset::register($this)->baseUrl."/sas/logo.png"?>" style="height: 200px; width: 200px; margin-bottom: 50px;">
             <h1><?=Yii::t('app', 'ТРИ ТОВАРИЩА')?></h1>
             <h2><?=Yii::t('app', 'РЕМОНТ АВТОМОБИЛЕЙ')?></h2>
             <div class="media">
