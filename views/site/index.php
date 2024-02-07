@@ -10,7 +10,7 @@ use yii\validators\BooleanValidator;
 use yii\validators\NumberValidator;
 use yii\validators\StringValidator;
 
-$this->title = 'Три товрища';
+$this->title = Yii::t('app','Три товрища');
 ?>
 <div class="site-index">
 
@@ -21,8 +21,8 @@ $this->title = 'Три товрища';
         <div class="name">
             <img src="<?= AppAsset::register($this)->baseUrl."/
             sas/logo.png"?>" style="height: 200px; width: 200px; margin-bottom: 50px;">
-            <h1>ТРИ ТОВАРИЩА</h1>
-            <h2>РЕМОНТ АВТОМОБИЛЕЙ</h2>
+            <h1><?=Yii::t('app', 'ТРИ ТОВАРИЩА')?></h1>
+            <h2><?=Yii::t('app', 'РЕМОНТ АВТОМОБИЛЕЙ')?></h2>
             <div class="media">
                 <a href="http://facebook.com"><img src="<?= AppAsset::register($this)->baseUrl."/sas/fb-logo.png"?>" style="height: 45px; width: 45px; border-radius: 100%; margin: 15px;"></a>
                 <a href="http://vk.com"><img src="<?= AppAsset::register($this)->baseUrl."/sas/vk-logo.png"?>" style="height: 45px; width: 45px; border-radius: 100%; margin: 15px;"></a>
@@ -31,30 +31,30 @@ $this->title = 'Три товрища';
         </div>
     </div>
     <div class="service">
-        <h3>УСЛУГИ</h3>
+        <h3><?=Yii::t('app', 'УСЛУГИ')?></h3>
         <div class="servline"></div>
         <div class="servtypes">
             <div class="servtype">
                 <img src="sas/fix.png">
-                <h4>РЕМОНТ</h4>
-                Это текст. Кликните дважды, чтобы отредактировать
+                <h4><?=Yii::t('app', 'РЕМОНТ')?></h4>
+                <?=Yii::t('app', 'Это текст. Кликните дважды, чтобы отредактировать')?>
             </div>
             <div class="servtype">
                 <img src="sas/skin.png">
-                <h4>ОБШИВКА</h4>
-                Это текст. Кликните дважды, чтобы отредактировать.
+                <h4><?=Yii::t('app', 'ОБШИВКА')?></h4>
+                <?=Yii::t('app', 'Это текст. Кликните дважды, чтобы отредактировать.')?>
             </div>
             <div class="servtype">
                 <img src="sas/paint.png">
-                <h4>ПОКРАСКА</h4>
-                Это текст. Кликните дважды, чтобы отредактировать.
+                <h4><?=Yii::t('app', 'ПОКРАСКА')?></h4>
+                <?=Yii::t('app', 'Это текст. Кликните дважды, чтобы отредактировать.')?>
             </div>
         </div>
     </div>
     <div class = "works">
-        <h3>НАШИ РАБОТЫ</h3>
+        <h3><?=Yii::t('app', 'НАШИ РАБОТЫ')?></h3>
         <div class="hline" style="background-color: grey"></div> <br>
-        <h4>Коллекция автомобилей, преобразившихся благодаря нам</h4><br>
+        <h4><?=Yii::t('app', 'Коллекция автомобилей, преобразившихся благодаря нам')?></h4><br>
         <div class="workstable">
             <div class="workline">
                 <img src="sas/6_0.jpg" width="426px" height="320px">
@@ -70,13 +70,13 @@ $this->title = 'Три товрища';
     </div>
     <div class="about">
         <div class="aboutins">
-            <h3>О НАС</h3><br>
+            <h3><?=Yii::t('app', 'О НАС'?></h3><br>
             <div class="hline" style="background-color: grey"></div><br>
-            <h4>Это текст. Нажмите один раз и выберите «Редактировать текст» или просто кликните дважды, чтобы добавить свое содержание и настроить шрифт. Текстовый блок можно перетащить в любое место на странице.
+            <h4><?=Yii::t('app', 'Это текст. Нажмите один раз и выберите «Редактировать текст» или просто кликните дважды, чтобы добавить свое содержание и настроить шрифт. Текстовый блок можно перетащить в любое место на странице.')?>
 
                 <br>
 
-                Используйте эту возможность, чтобы выгодно представить себя и свою компанию клиентам. Расскажите интересную историю, например, как вам в голову пришла идея собственного дела, и объясните, в чем заключается ваше преимущество перед конкурентами.</h4>
+                <?=Yii::t('app', 'Используйте эту возможность, чтобы выгодно представить себя и свою компанию клиентам. Расскажите интересную историю, например, как вам в голову пришла идея собственного дела, и объясните, в чем заключается ваше преимущество перед конкурентами.')?></h4>
         </div>
     </div>
     <div class="abyss">
