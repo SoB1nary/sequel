@@ -35,17 +35,17 @@ $this->title = Yii::t('app','Три товрища');
         <div class="servline"></div>
         <div class="servtypes">
             <div class="servtype">
-                <img src="sas/fix.png">
+                <img src="/sas/fix.png">
                 <h4><?=Yii::t('app', 'РЕМОНТ')?></h4>
                 <?=Yii::t('app', 'Это текст. Кликните дважды, чтобы отредактировать')?>
             </div>
             <div class="servtype">
-                <img src="sas/skin.png">
+                <img src="/sas/skin.png">
                 <h4><?=Yii::t('app', 'ОБШИВКА')?></h4>
                 <?=Yii::t('app', 'Это текст. Кликните дважды, чтобы отредактировать.')?>
             </div>
             <div class="servtype">
-                <img src="sas/paint.png">
+                <img src="/sas/paint.png">
                 <h4><?=Yii::t('app', 'ПОКРАСКА')?></h4>
                 <?=Yii::t('app', 'Это текст. Кликните дважды, чтобы отредактировать.')?>
             </div>
@@ -57,20 +57,20 @@ $this->title = Yii::t('app','Три товрища');
         <h4><?=Yii::t('app', 'Коллекция автомобилей, преобразившихся благодаря нам')?></h4><br>
         <div class="workstable">
             <div class="workline">
-                <img src="sas/6_0.jpg" width="426px" height="320px">
-                <img src="sas/6_0.jpg" width="426px" height="320px">
-                <img src="sas/6_0.jpg" width="426px" height="320px">
+                <img src="/sas/6_0.jpg" width="426px" height="320px">
+                <img src="/sas/6_0.jpg" width="426px" height="320px">
+                <img src="/sas/6_0.jpg" width="426px" height="320px">
             </div>
             <div class="workline">
-                <img src="sas/6_0.jpg" width="426px" height="320px">
-                <img src="sas/6_0.jpg" width="426px" height="320px">
-                <img src="sas/6_0.jpg" width="426px" height="320px">
+                <img src="/sas/6_0.jpg" width="426px" height="320px">
+                <img src="/sas/6_0.jpg" width="426px" height="320px">
+                <img src="/sas/6_0.jpg" width="426px" height="320px">
             </div>
         </div>
     </div>
     <div class="about">
         <div class="aboutins">
-            <h3><?=Yii::t('app', 'О НАС'?></h3><br>
+            <h3><?=Yii::t('app', 'О НАС')?></h3><br>
             <div class="hline" style="background-color: grey"></div><br>
             <h4><?=Yii::t('app', 'Это текст. Нажмите один раз и выберите «Редактировать текст» или просто кликните дважды, чтобы добавить свое содержание и настроить шрифт. Текстовый блок можно перетащить в любое место на странице.')?>
 
@@ -83,7 +83,7 @@ $this->title = Yii::t('app','Три товрища');
 
 
     <div class="formsthing">
-        <img src="sas/car3.webp">
+        <img src="/sas/car3.webp">
         imagine there are things here
     </div>
 
