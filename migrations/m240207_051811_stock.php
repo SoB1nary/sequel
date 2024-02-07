@@ -3,9 +3,9 @@
 use yii\db\Migration;
 
 /**
- * Class m240206_173819_stock
+ * Class m240207_051811_stock
  */
-class m240206_173819_stock extends Migration
+class m240207_051811_stock extends Migration
 {
     /**
      * {@inheritdoc}
@@ -18,7 +18,7 @@ class m240206_173819_stock extends Migration
             'brand'=>$this->string(255)->notNull(),
             'desc'=>$this->string(255)->notNull(),
             'amount'=>$this->integer()->notNull(),
-            'available'=>$this->dateTime()->notNull(),
+            'available'=>$this->boolean()->notNull(),
             'updated_at'=>$this->dateTime()->notNull()
         ]);
     }
@@ -28,7 +28,7 @@ class m240206_173819_stock extends Migration
      */
     public function safeDown()
     {
-        echo "m240206_173819_stock cannot be reverted.\n";
+        echo "m240207_051811_stock cannot be reverted.\n";
 
         return false;
     }
@@ -42,7 +42,7 @@ class m240206_173819_stock extends Migration
 
     public function down()
     {
-        echo "m240206_173819_stock cannot be reverted.\n";
+        echo "m240207_051811_stock cannot be reverted.\n";
 
         return false;
     }

@@ -20,7 +20,6 @@ use yii\web\IdentityInterface;
  * @property string $password
  * @property string $auth_key
  * @property string $email
-
  */
 class Users extends \yii\db\ActiveRecord implements IdentityInterface
 {

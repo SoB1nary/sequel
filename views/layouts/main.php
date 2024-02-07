@@ -30,11 +30,11 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
 <body class="d-flex flex-column h-100">
 <?php $this->beginBody() ?>
 <header>
-    <button class="hatbuttons">ГЛАВНАЯ</button>
-    <button class="hatbuttons">УСЛУГИ</button>
-    <button class="hatbuttons">РАБОТЫ</button>
-    <button class="hatbuttons">О НАС</button>
-    <button class="hatbuttons">КОНТАКТЫ</button>
+    <button class="hatbuttons"><?=Yii::t('app', 'ГЛАВНАЯ')?></button>
+    <button class="hatbuttons"><?=Yii::t('app', 'УСЛУГИ')?></button>
+    <button class="hatbuttons"><?=Yii::t('app', 'РАБОТЫ')?></button>
+    <button class="hatbuttons"><?=Yii::t('app', 'О НАС')?></button>
+    <button class="hatbuttons"><?=Yii::t('app', 'КОНТАКТЫ')?></button>
 </header>
 <!--<header id="header">-->
 <!--    --><?php

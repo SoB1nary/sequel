@@ -34,7 +34,8 @@ class Stock extends \yii\db\ActiveRecord
             [['name', 'brand', 'desc', 'amount', 'available', 'updated_at'], 'required'],
             [['available', 'updated_at'], 'safe'],
             [['name', 'brand', 'desc', ], 'string', 'max' => 255],
-            [['amount'], 'integer']
+            [['amount'], 'integer'],
+            [['available'], 'boolean']
         ];
     }
 
