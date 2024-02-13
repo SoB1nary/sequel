@@ -20,7 +20,7 @@ class Stock extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
-    public static function tableName()
+    public static function tableName(): string
     {
         return 'stock';
     }
@@ -28,7 +28,7 @@ class Stock extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
-    public function rules()
+    public function rules(): array
     {
         return [
             [['name', 'brand', 'desc', 'amount', 'available', 'updated_at'], 'required'],
@@ -42,7 +42,7 @@ class Stock extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
-    public function attributeLabels()
+    public function attributeLabels(): array
     {
         return [
             'id' => Yii::t('app', 'ID'),
@@ -59,7 +59,7 @@ class Stock extends \yii\db\ActiveRecord
      * {@inheritdoc}
      * @return StockQuery the active query used by this AR class.
      */
-    public static function find()
+    public static function find(): StockQuery
     {
         return new StockQuery(get_called_class());
     }

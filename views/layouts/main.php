@@ -6,9 +6,13 @@
 use app\assets\AppAsset;
 use app\widgets\Alert;
 use yii\bootstrap5\Breadcrumbs;
+use yii\bootstrap5\Button;
 use yii\bootstrap5\Html;
 use yii\bootstrap5\Nav;
+use yii\bootstrap5\Dropdown;
 use yii\bootstrap5\NavBar;
+use yii\bootstrap5\ActiveForm;
+use yii\helpers\Url;
 
 
 AppAsset::register($this);
@@ -30,11 +34,32 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
 <body class="d-flex flex-column h-100">
 <?php $this->beginBody() ?>
 <header>
-    <button class="hatbuttons"><?=Yii::t('app', 'ГЛАВНАЯ')?></button>
-    <button class="hatbuttons"><?=Yii::t('app', 'УСЛУГИ')?></button>
-    <button class="hatbuttons"><?=Yii::t('app', 'РАБОТЫ')?></button>
-    <button class="hatbuttons"><?=Yii::t('app', 'О НАС')?></button>
-    <button class="hatbuttons"><?=Yii::t('app', 'КОНТАКТЫ')?></button>
+
+    <?php
+    NavBar::begin(['class'=>'hatbuttons']);
+    echo Nav::widget(
+        ['items' =>
+            [['label' => 'Home',
+                'url' => ['site/index'],
+                'linkOptions' => ['style' => 'color: #FFFFFF;'],
+            ],
+                ['label' => 'Dropdown',
+                    'items' => [
+                        ['label' => 'English', 'url' => array_merge(Yii::$app->request->get(), [Yii::$app->controller->getRoute(), 'language' => 'en_US'])],
+                        ['label' => 'Казакша', 'url' => array_merge(Yii::$app->request->get(), [Yii::$app->controller->getRoute(), 'language' => 'kk_KZ'])],
+                        ['label' => 'Русский', 'url' => array_merge(Yii::$app->request->get(), [Yii::$app->controller->getRoute(), 'language' => 'ru_RU'])],
+                        ],
+                    'linkOptions' => ['style' => 'color: #FFFFFF;'],
+                    ],
+                ['label' => 'Login',
+                'url' => ['site/login'],
+                'visible' => Yii::$app->user->isGuest],
+                ],
+
+            'options' => ['class' => 'navbar-nav hatbuttons'],
+        ]);
+        NavBar::end();
+?>
 </header>
 <!--<header id="header">-->
 <!--    --><?php

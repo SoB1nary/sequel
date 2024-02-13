@@ -5,6 +5,8 @@ $db = require __DIR__ . '/db.php';
 
 $config = [
     'id' => 'basic',
+    'language' => 'ru_RU',
+    'sourceLanguage' => 'ru_RU',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'aliases' => [
@@ -45,9 +47,22 @@ $config = [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+            'class' => 'codemix\localeurls\UrlManager',
+            'languages' => ['ru_RU', 'en_US', 'kk_KZ'],
+            'enableDefaultLanguageUrlCode' => 'true',
             'rules' => [
             ],
         ],
+        'i18n' => [
+            'translations' => [
+                'app*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'fileMap' => [
+                        'app' => 'app.php',
+                    ]
+                ]
+            ]
+        ]
     ],
     'params' => $params,
 ];

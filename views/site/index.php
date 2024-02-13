@@ -9,8 +9,10 @@ use app\assets\AppAsset;
 use yii\validators\BooleanValidator;
 use yii\validators\NumberValidator;
 use yii\validators\StringValidator;
+use kartik\select2\Select2;
 
 $this->title = Yii::t('app','Три товрища');
+
 ?>
 <div class="site-index">
 
@@ -29,6 +31,7 @@ $this->title = Yii::t('app','Три товрища');
             </div>
         </div>
     </div>
+
     <div class="service">
         <h3><?=Yii::t('app', 'УСЛУГИ')?></h3>
         <div class="servline"></div>
@@ -41,12 +44,12 @@ $this->title = Yii::t('app','Три товрища');
             <div class="servtype">
                 <img src="/sas/skin.png">
                 <h4><?=Yii::t('app', 'ОБШИВКА')?></h4>
-                <?=Yii::t('app', 'Это текст. Кликните дважды, чтобы отредактировать.')?>
+                <?=Yii::t('app', 'Мы обшиваем сидення')?>
             </div>
             <div class="servtype">
                 <img src="/sas/paint.png">
                 <h4><?=Yii::t('app', 'ПОКРАСКА')?></h4>
-                <?=Yii::t('app', 'Это текст. Кликните дважды, чтобы отредактировать.')?>
+                <?=Yii::t('app', 'Мы красем машины.')?>
             </div>
         </div>
     </div>

@@ -94,7 +94,8 @@
 	padding: 0;
 }
 body {
-
+background-color: #2F2E2E;
+	color: white;
 }
 
 
@@ -113,17 +114,20 @@ header {
 	justify-content: center;
 	gap: 60px;
 	position: fixed;
+
 }
 .hatbuttons {
-	background-color: #00000000;
+	background-color: grey;
 	border: 0;
 	color: white;
 	font-size: 20px;
 	font-family: 'Open Sans', sans-serif;
 	transition-duration: 0.3s;
+	border-color: #2F2E2E;
+	flex-direction: row;
 }
 .hatbuttons:hover {
-	color: lightgrey;
+
 }
 .name {
 
@@ -188,7 +192,7 @@ header {
 }
 
 .works {
-	color: grey;
+
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -295,25 +299,23 @@ h4 {
 	font-family: sans-serif;
 }
 
-.parallax {
-	perspective: 1px;
-	height: 100vh;
-	overflow-x: hidden;
-	overflow-y: auto;
+.navbar-nav {
+	background-color: #2F2E2E;
+	border: 0;
+	padding: 0;
+	font-size: 20px;
+	font-family: 'Open Sans', sans-serif;
+	color: white;
 }
-.parallax__layer {
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-}
-.parallax__layer--base {
-	transform: translateZ(0);
-}
-.parallax__layer--back {
-	transform: translateZ(-1px);
+.container {
+
 }
 
-.
 
+.bg_light {
+	--bs-bg-opacity: 0;
+}
+
+.nav
+{background-color: #2F2E2E;
+}
