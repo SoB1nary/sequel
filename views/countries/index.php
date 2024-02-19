@@ -1,6 +1,6 @@
 <?php
 
-use app\models\Stock;
+use app\models\Countries;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
@@ -9,15 +9,15 @@ use yii\grid\GridView;
 /** @var yii\web\View $this */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = Yii::t('app', 'Stocks');
+$this->title = Yii::t('app', 'Countries');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="stock-index">
+<div class="countries-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Create Stock'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('app', 'Create Countries'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
 
@@ -28,14 +28,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
             'name',
-            'brand_id',
-            'desc:ntext',
-            'amount',
-            //'available',
-            //'updated_at',
             [
                 'class' => ActionColumn::className(),
-                'urlCreator' => function ($action, Stock $model, $key, $index, $column) {
+                'urlCreator' => function ($action, Countries $model, $key, $index, $column) {
                     return Url::toRoute([$action, 'id' => $model->id]);
                  }
             ],

@@ -10,7 +10,8 @@ use yii\validators\BooleanValidator;
 use yii\validators\NumberValidator;
 use yii\validators\StringValidator;
 use kartik\select2\Select2;
-
+use app\models\Countries;
+Countries::
 $this->title = Yii::t('app','Три товрища');
 
 ?>

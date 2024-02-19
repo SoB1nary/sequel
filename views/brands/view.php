@@ -1,18 +1,17 @@
 <?php
 
-use app\models\Brands;
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /** @var yii\web\View $this */
-/** @var app\models\Stock $model */
+/** @var app\models\Brands $model */
 
 $this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Stocks'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Brands'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
-<div class="stock-view">
+<div class="brands-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -32,13 +31,6 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'name',
-            ['label'=>Yii::t('app', 'Бренд'),
-            'value'=>$model->getBrand()->one()->name
-                ],
-            'desc:ntext',
-            'amount',
-            'available',
-            'updated_at',
         ],
     ]) ?>
 

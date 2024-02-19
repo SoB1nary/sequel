@@ -3,19 +3,18 @@
 use yii\db\Migration;
 
 /**
- * Class m240213_093742_brands
+ * Class m240216_060656_countries
  */
-class m240213_093742_brands extends Migration
+class m240216_060656_countries extends Migration
 {
     /**
      * {@inheritdoc}
      */
     public function safeUp()
     {
-        $this->createTable('brands', [
+        $this->createTable('countries', [
             'id'=>$this->primaryKey(),
-            'name'=>$this->string(255)->notNull(),
-            ]);
+            'name'=>$this->string(255)->notNull(),]);
     }
 
     /**
@@ -23,7 +22,7 @@ class m240213_093742_brands extends Migration
      */
     public function safeDown()
     {
-        echo "m240213_093742_brands cannot be reverted.\n";
+        echo "m240216_060656_countries cannot be reverted.\n";
 
         return false;
     }
@@ -37,7 +36,7 @@ class m240213_093742_brands extends Migration
 
     public function down()
     {
-        echo "m240213_093742_brands cannot be reverted.\n";
+        echo "m240216_060656_countries cannot be reverted.\n";
 
         return false;
     }
