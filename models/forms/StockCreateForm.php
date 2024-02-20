@@ -35,7 +35,7 @@ class StockCreateForm extends Model
     /**
      * @throws Exception
      */
-    public function save() : bool
+    public function save() : void
     {
         Yii::$app->db->createCommand()
             ->insert('stock', [
@@ -53,5 +53,5 @@ class StockCreateForm extends Model
                 ])->execute();
             unset($color_id);
     }
-    };
+    }
 }
