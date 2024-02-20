@@ -19,7 +19,8 @@ class m240213_163011_stock extends Migration
             'desc'=>$this->text(),
             'amount'=>$this->integer()->notNull(),
             'available'=>$this->boolean()->notNull(),
-            'updated_at'=>$this->dateTime()->notNull()
+            'updated_at'=>$this->dateTime()->notNull(),
+            
         ]);
         $this->createIndex('idx-stock-brand_id', 'stock', 'brand_id');
         $this->addForeignKey('fk-stock-brand_id', 'stock', 'brand_id','brands','id', 'CASCADE');
