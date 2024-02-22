@@ -77,4 +77,11 @@ class ColorsOfStock extends \yii\db\ActiveRecord
     {
         return new ColorsOfStockQuery(get_called_class());
     }
+    public static function createCOS($stock_id, $color_id): void
+    {
+        $COS=new ColorsOfStock();
+        $COS->stock_id=$stock_id;
+        $COS->color_id=$color_id;
+        $COS->save();
+    }
 }

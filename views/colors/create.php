@@ -3,13 +3,13 @@
 use yii\helpers\Html;
 
 /** @var yii\web\View $this */
-/** @var app\models\forms\StockCreateForm $model */
+/** @var app\models\Colors $model */
 
-$this->title = Yii::t('app', 'Create Stock');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Stocks'), 'url' => ['index']];
+$this->title = Yii::t('app', 'Create Colors');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Colors'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="stock-create">
+<div class="colors-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

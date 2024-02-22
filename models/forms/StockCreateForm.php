@@ -3,12 +3,16 @@
 namespace app\models\forms;
 
 use app\models\Brands;
+use app\models\ColorsOfStock;
+use app\models\Stock;
 use yii\base\Model;
 use Yii;
+use yii\db\ActiveRecord;
 use yii\db\Exception;
 
 /**
 * @property int $id
+* @property int $stock_id
 * @property string $name
 * @property int $brand_id
 * @property string|null $desc
@@ -18,40 +22,35 @@ use yii\db\Exception;
 * @property array $raw_colors
  *
  * */
-class StockCreateForm extends Model
+class StockCreateForm extends ActiveRecord
 {
+    public $name = "";
+    public int $stock_id;
+    public string|null $desc;
+    public int $brand_id;
+    public int $amount;
+    public int $available;
+    public string $updated_at;
+    public array $raw_colors;
+
+
+
+
     public function rules()
     {
         return [
             [['name', 'brand_id', 'amount', 'available', 'colors'], 'required'],
             [['brand_id', 'amount', 'available'], 'integer'],
             [['desc'], 'string'],
+            [['stock_id'], 'unique'],
             [['updated_at'], 'safe'],
             [['name'], 'string', 'max' => 255],
             [['brand_id'], 'exist', 'skipOnError' => true, 'targetClass' => Brands::class, 'targetAttribute' => ['brand_id' => 'id']],
         ];
     }
 
-    /**
-     * @throws Exception
-     */
-    public function save() : void
-    {
-        Yii::$app->db->createCommand()
-            ->insert('stock', [
-                'name'=>$this->name,
-                'brand_id'=>$this->brand_id,
-                'amount'=>$this->amount,
-                'desc'=>$this->desc,
-                'updated_at'=>date('Y-m-d h:m:s')
-                ])->execute();
-        foreach ($this->raw_colors as $color_id){
 
-            Yii::$app->db->createCommand()
-                ->insert('colorsOfStock', [
-                    'color_id' => $color_id,
-                ])->execute();
-            unset($color_id);
-    }
-    }
+
+
+
 }

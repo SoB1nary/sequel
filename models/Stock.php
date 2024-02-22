@@ -3,22 +3,28 @@
 namespace app\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
+use yii\db\Expression;
 
 /**
  * This is the model class for table "stock".
  *
  * @property int $id
+ * @property int $stock_id
  * @property string $name
- * @property int $brand_id
- * @property string|null $desc
+ * @property string $desc
  * @property int $amount
+ * @property int $brand_id
  * @property int $available
  * @property string $updated_at
- *
+ * @property string $created_at
+ * @property array $raw_colors
  * @property Brands $brand
  */
 class Stock extends \yii\db\ActiveRecord
 {
+
+    public array $raw_colors=[];
     /**
      * {@inheritdoc}
      */
@@ -33,12 +39,21 @@ class Stock extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'brand_id', 'amount', 'available', 'updated_at'], 'required'],
-            [['brand_id', 'amount', 'available'], 'integer'],
+            [['stock_id', 'name', 'desc', 'amount', 'brand_id', 'available'], 'required'],
+            [['stock_id', 'amount', 'brand_id', 'available'], 'integer'],
+            [['stock_id'], 'unique'],
             [['desc'], 'string'],
-            [['updated_at'], 'safe'],
             [['name'], 'string', 'max' => 255],
             [['brand_id'], 'exist', 'skipOnError' => true, 'targetClass' => Brands::class, 'targetAttribute' => ['brand_id' => 'id']],
+        ];
+    }
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => TimestampBehavior::class,
+                'value' => date('Y-m-d H:i:s'),
+            ],
         ];
     }
 
@@ -49,12 +64,14 @@ class Stock extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
+            'stock_id' => Yii::t('app', 'Stock ID'),
             'name' => Yii::t('app', 'Name'),
-            'brand_id' => Yii::t('app', 'Brand ID'),
             'desc' => Yii::t('app', 'Desc'),
             'amount' => Yii::t('app', 'Amount'),
+            'brand_id' => Yii::t('app', 'Brand ID'),
             'available' => Yii::t('app', 'Available'),
             'updated_at' => Yii::t('app', 'Updated At'),
+            'created_at' => Yii::t('app', 'Created At'),
         ];
     }
 
@@ -76,4 +93,16 @@ class Stock extends \yii\db\ActiveRecord
     {
         return new StockQuery(get_called_class());
     }
+
+    public function beforeSave($insert) {
+        foreach ($this->raw_colors as $color_id) {
+            ColorsOfStock::createCOS($this->stock_id, $color_id);
+        }
+        $this->raw_colors=[];
+
+        parent::beforeSave($insert);
+    }
+
+
+
 }
