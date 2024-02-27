@@ -3,11 +3,11 @@
 namespace app\models;
 
 /**
- * This is the ActiveQuery class for [[ColorsOfStock]].
+ * This is the ActiveQuery class for [[CategoriesOfStock]].
  *
- * @see ColorsOfStock
+ * @see CategoriesOfStock
  */
-class ColorsOfStockQuery extends \yii\db\ActiveQuery
+class CategoriesOfStockQuery extends \yii\db\ActiveQuery
 {
     /*public function active()
     {
@@ -16,7 +16,7 @@ class ColorsOfStockQuery extends \yii\db\ActiveQuery
 
     /**
      * {@inheritdoc}
-     * @return ColorsOfStock[]|array
+     * @return CategoriesOfStock[]|array
      */
     public function all($db = null)
     {
@@ -25,7 +25,7 @@ class ColorsOfStockQuery extends \yii\db\ActiveQuery
 
     /**
      * {@inheritdoc}
-     * @return ColorsOfStock|array|null
+     * @return CategoriesOfStock|array|null
      */
     public function one($db = null)
     {

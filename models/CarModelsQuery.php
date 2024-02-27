@@ -3,11 +3,11 @@
 namespace app\models;
 
 /**
- * This is the ActiveQuery class for [[Colors]].
+ * This is the ActiveQuery class for [[CarModels]].
  *
- * @see Colors
+ * @see CarModels
  */
-class ColorsQuery extends \yii\db\ActiveQuery
+class CarModelsQuery extends \yii\db\ActiveQuery
 {
     /*public function active()
     {
@@ -16,7 +16,7 @@ class ColorsQuery extends \yii\db\ActiveQuery
 
     /**
      * {@inheritdoc}
-     * @return Colors[]|array
+     * @return CarModels[]|array
      */
     public function all($db = null)
     {
@@ -25,7 +25,7 @@ class ColorsQuery extends \yii\db\ActiveQuery
 
     /**
      * {@inheritdoc}
-     * @return Colors|array|null
+     * @return CarModels|array|null
      */
     public function one($db = null)
     {

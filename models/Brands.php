@@ -9,6 +9,9 @@ use Yii;
  *
  * @property int $id
  * @property string $name
+ *
+ * @property CarModel[] $carModels
+ * @property Stock[] $stocks
  */
 class Brands extends \yii\db\ActiveRecord
 {
@@ -43,6 +46,26 @@ class Brands extends \yii\db\ActiveRecord
     }
 
     /**
+     * Gets query for [[CarModels]].
+     *
+     * @return \yii\db\ActiveQuery|CarModelQuery
+     */
+    public function getCarModels()
+    {
+        return $this->hasMany(CarModel::class, ['brand_id' => 'id']);
+    }
+
+    /**
+     * Gets query for [[Stocks]].
+     *
+     * @return \yii\db\ActiveQuery|StockQuery
+     */
+    public function getStocks()
+    {
+        return $this->hasMany(Stock::class, ['brand_id' => 'id']);
+    }
+
+    /**
      * {@inheritdoc}
      * @return BrandsQuery the active query used by this AR class.
      */
@@ -50,10 +73,4 @@ class Brands extends \yii\db\ActiveRecord
     {
         return new BrandsQuery(get_called_class());
     }
-
-    public function getName(): string
-    {
-        return $this->name;
-    }
-
 }

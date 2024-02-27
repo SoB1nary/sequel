@@ -3,28 +3,26 @@
 namespace app\models;
 
 use Yii;
-use yii\behaviors\TimestampBehavior;
-use yii\db\Expression;
 
 /**
  * This is the model class for table "stock".
  *
  * @property int $id
  * @property int $stock_id
- * @property string $name
- * @property string $desc
- * @property int $amount
- * @property int $brand_id
- * @property int $available
- * @property string $updated_at
+ * @property string $name_ru
+ * @property string|null $name_kz
+ * @property string|null $name_en
+ * @property int|null $amount
  * @property string $created_at
- * @property array $raw_colors
- * @property Brands $brand
+ * @property string $updated_at
+ * @property int|null $available
+ * @property int|null $brand_id
+ *
+ * @property Brand $brand
+ * @property CategoriesOfStock[] $categoriesOfStocks
  */
 class Stock extends \yii\db\ActiveRecord
 {
-
-    public array $raw_colors=[];
     /**
      * {@inheritdoc}
      */
@@ -39,21 +37,11 @@ class Stock extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['stock_id', 'name', 'desc', 'amount', 'brand_id', 'available'], 'required'],
-            [['stock_id', 'amount', 'brand_id', 'available'], 'integer'],
-            [['stock_id'], 'unique'],
-            [['desc'], 'string'],
-            [['name'], 'string', 'max' => 255],
-            [['brand_id'], 'exist', 'skipOnError' => true, 'targetClass' => Brands::class, 'targetAttribute' => ['brand_id' => 'id']],
-        ];
-    }
-    public function behaviors()
-    {
-        return [
-            [
-                'class' => TimestampBehavior::class,
-                'value' => date('Y-m-d H:i:s'),
-            ],
+            [['stock_id', 'name_ru', 'created_at', 'updated_at'], 'required'],
+            [['stock_id', 'amount', 'available', 'brand_id'], 'integer'],
+            [['created_at', 'updated_at'], 'safe'],
+            [['name_ru', 'name_kz', 'name_en'], 'string', 'max' => 255],
+            [['brand_id'], 'exist', 'skipOnError' => true, 'targetClass' => Brand::class, 'targetAttribute' => ['brand_id' => 'id']],
         ];
     }
 
@@ -65,24 +53,35 @@ class Stock extends \yii\db\ActiveRecord
         return [
             'id' => Yii::t('app', 'ID'),
             'stock_id' => Yii::t('app', 'Stock ID'),
-            'name' => Yii::t('app', 'Name'),
-            'desc' => Yii::t('app', 'Desc'),
+            'name_ru' => Yii::t('app', 'Name Ru'),
+            'name_kz' => Yii::t('app', 'Name Kz'),
+            'name_en' => Yii::t('app', 'Name En'),
             'amount' => Yii::t('app', 'Amount'),
-            'brand_id' => Yii::t('app', 'Brand ID'),
-            'available' => Yii::t('app', 'Available'),
-            'updated_at' => Yii::t('app', 'Updated At'),
             'created_at' => Yii::t('app', 'Created At'),
+            'updated_at' => Yii::t('app', 'Updated At'),
+            'available' => Yii::t('app', 'Available'),
+            'brand_id' => Yii::t('app', 'Brand ID'),
         ];
     }
 
     /**
      * Gets query for [[Brand]].
      *
-     * @return \yii\db\ActiveQuery|BrandsQuery
+     * @return \yii\db\ActiveQuery|BrandQuery
      */
     public function getBrand()
     {
-        return $this->hasOne(Brands::class, ['id' => 'brand_id']);
+        return $this->hasOne(Brand::class, ['id' => 'brand_id']);
+    }
+
+    /**
+     * Gets query for [[CategoriesOfStocks]].
+     *
+     * @return \yii\db\ActiveQuery|CategoriesOfStockQuery
+     */
+    public function getCategoriesOfStocks()
+    {
+        return $this->hasMany(CategoriesOfStock::class, ['stock_id' => 'stock_id']);
     }
 
     /**
@@ -93,16 +92,4 @@ class Stock extends \yii\db\ActiveRecord
     {
         return new StockQuery(get_called_class());
     }
-
-    public function beforeSave($insert) {
-        foreach ($this->raw_colors as $color_id) {
-            ColorsOfStock::createCOS($this->stock_id, $color_id);
-        }
-        $this->raw_colors=[];
-
-        parent::beforeSave($insert);
-    }
-
-
-
 }

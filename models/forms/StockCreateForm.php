@@ -24,7 +24,7 @@ use yii\db\Exception;
  * */
 class StockCreateForm extends ActiveRecord
 {
-    public $name = "";
+    public string $name = "";
     public int $stock_id;
     public string|null $desc;
     public int $brand_id;
