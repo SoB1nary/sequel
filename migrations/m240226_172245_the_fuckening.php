@@ -81,7 +81,7 @@ class m240226_172245_the_fuckening extends Migration
         $this->createIndex('idx-categories_of_stock-category_id', 'categories_of_stock', 'category_id');
         $this->addForeignKey('fk-categories_of_stock-stock_id', 'categories_of_stock', 'stock_id', 'stock', 'stock_id', 'CASCADE');
         $this->addForeignKey('fk-categories_of_stock-category_id', 'categories_of_stock', 'category_id', 'categories', 'id', 'CASCADE');
-
+//TODO: add requests
     }
 
     /**
