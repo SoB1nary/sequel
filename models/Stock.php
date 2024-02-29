@@ -18,7 +18,7 @@ use Yii;
  * @property int|null $available
  * @property int|null $brand_id
  *
- * @property Brand $brand
+ * @property Brands $brand
  * @property CategoriesOfStock[] $categoriesOfStocks
  */
 class Stock extends \yii\db\ActiveRecord
@@ -41,7 +41,7 @@ class Stock extends \yii\db\ActiveRecord
             [['stock_id', 'amount', 'available', 'brand_id'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
             [['name_ru', 'name_kz', 'name_en'], 'string', 'max' => 255],
-            [['brand_id'], 'exist', 'skipOnError' => true, 'targetClass' => Brand::class, 'targetAttribute' => ['brand_id' => 'id']],
+            [['brand_id'], 'exist', 'skipOnError' => true, 'targetClass' => Brands::class, 'targetAttribute' => ['brand_id' => 'id']],
         ];
     }
 

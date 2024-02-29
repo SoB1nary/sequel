@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 
 /** @var yii\web\View $this */
-/** @var app\models\forms\StockCreateForm $model */
+/** @var app\models\Stock $model */
 
 $this->title = Yii::t('app', 'Create Stock');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Stocks'), 'url' => ['index']];

@@ -19,6 +19,7 @@ class m240227_061322_add_brands extends Migration
     $this->insert('brands',
     [
         'name'=>'Michelin'
+
     ]);
     $this->insert('brands',[
         'name'=>'Bingus Petroleum'
@@ -26,7 +27,10 @@ class m240227_061322_add_brands extends Migration
     $this->insert('brands',[
         'name'=>'Kolhoz Inc.'
     ]);
-    }
+    $this->insert('brands', [
+        'name'=>'Lampochka Corp."'
+    ]);
+        }
 
     /**
      * {@inheritdoc}

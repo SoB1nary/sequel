@@ -4,6 +4,8 @@ namespace app\controllers;
 
 use app\models\forms\StockCreateForm;
 use app\models\Stock;
+use Yii;
+use yii\base\InvalidConfigException;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -75,17 +77,21 @@ class StockController extends Controller
      * Creates a new Stock model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return string|\yii\web\Response
+     * @throws InvalidConfigException
      */
-    public function actionCreate()
+    public function actionCreate(): \yii\web\Response|string
     {
-        $model = new Stock();
-
+        $model = Yii::createObject(StockCreateForm::class);
+        $model->loadData(null);
         if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
+            if ($model->load($this->request->post())) {
+
+                if ($model->save()) {
+                    return $this->redirect(['view', 'id' => $model->id]);
+                }
             }
         } else {
-            $model->loadDefaultValues();
+            $model->loadData(null);
         }
 
         return $this->render('create', [

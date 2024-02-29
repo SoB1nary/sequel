@@ -77,4 +77,5 @@ class CategoriesOfStock extends \yii\db\ActiveRecord
     {
         return new CategoriesOfStockQuery(get_called_class());
     }
+
 }
