@@ -29,13 +29,15 @@ use app\models\Brands;
 
     <?= $form->field($model, 'amount')->textInput() ?>
 
+    <?= $form->field($model, 'desc')->textInput() ?>
+
     <?= $form->field($model, 'created_at')->textInput() ?>
 
     <?= $form->field($model, 'updated_at')->textInput() ?>
 
     <?= $form->field($model, 'available')->textInput() ?>
 
-    <?= $form->field($model, 'categoriesOfStocks')->widget(select2\Select2::classname(), [
+    <?= $form->field($model, 'categoriesOfStock')->widget(select2\Select2::classname(), [
             'data'=>$categories,
             'options'=>[
                     'multiple'=>true,

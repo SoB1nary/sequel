@@ -11,7 +11,7 @@ use Yii;
  * @property int $stock_id
  * @property int $category_id
  *
- * @property Category $category
+ * @property Categories $category
  * @property Stock $stock
  */
 class CategoriesOfStock extends \yii\db\ActiveRecord
@@ -32,7 +32,7 @@ class CategoriesOfStock extends \yii\db\ActiveRecord
         return [
             [['stock_id', 'category_id'], 'required'],
             [['stock_id', 'category_id'], 'integer'],
-            [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Category::class, 'targetAttribute' => ['category_id' => 'id']],
+            [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Categories::class, 'targetAttribute' => ['category_id' => 'id']],
             [['stock_id'], 'exist', 'skipOnError' => true, 'targetClass' => Stock::class, 'targetAttribute' => ['stock_id' => 'stock_id']],
         ];
     }
@@ -40,7 +40,7 @@ class CategoriesOfStock extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
-    public function attributeLabels()
+    public function attributeLabels(): array
     {
         return [
             'id' => Yii::t('app', 'ID'),
@@ -50,13 +50,13 @@ class CategoriesOfStock extends \yii\db\ActiveRecord
     }
 
     /**
-     * Gets query for [[Category]].
+     * Gets query for [[Categories]].
      *
-     * @return \yii\db\ActiveQuery|CategoryQuery
+     * @return \yii\db\ActiveQuery|CategoriesQuery
      */
-    public function getCategory()
+    public function getCategories(): \yii\db\ActiveQuery|CategoriesQuery
     {
-        return $this->hasOne(Category::class, ['id' => 'category_id']);
+        return $this->hasOne(Categories::class, ['id' => 'category_id']);
     }
 
     /**

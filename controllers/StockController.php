@@ -7,6 +7,7 @@ use app\models\Stock;
 use Yii;
 use yii\base\InvalidConfigException;
 use yii\data\ActiveDataProvider;
+use yii\helpers\VarDumper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -14,7 +15,7 @@ use yii\filters\VerbFilter;
 /**
  * StockController implements the CRUD actions for Stock model.
  */
-class StockController extends Controller
+class StockController extends BaseController
 {
     /**
      * @inheritDoc
@@ -57,6 +58,7 @@ class StockController extends Controller
 
         return $this->render('index', [
             'dataProvider' => $dataProvider,
+            'suffix'=>$this->suffix,
         ]);
     }
 
@@ -83,11 +85,16 @@ class StockController extends Controller
     {
         $model = Yii::createObject(StockCreateForm::class);
         $model->loadData(null);
+
+
         if ($this->request->isPost) {
             if ($model->load($this->request->post())) {
 
                 if ($model->save()) {
+                  VarDumper::dump($model->CategoriesOfStock);
+
                     return $this->redirect(['view', 'id' => $model->id]);
+
                 }
             }
         } else {
@@ -108,11 +115,12 @@ class StockController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
+        $stock = $this->findModel($id);
+        $model = Yii::createObject(StockCreateForm::class);
+        $model->loadData($stock);
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
+            $newGenres = $this->request->post()["StockCreateForm"]['categoriesOfStock'];}
 
         return $this->render('update', [
             'model' => $model,

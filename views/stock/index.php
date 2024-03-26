@@ -6,11 +6,15 @@ use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
 
+
 /** @var yii\web\View $this */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
+
+
 $this->title = Yii::t('app', 'Stocks');
 $this->params['breadcrumbs'][] = $this->title;
+
 ?>
 <div class="stock-index">
 
@@ -21,16 +25,31 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
 
 
-    <?= GridView::widget([
+    <?=
+    GridView::widget([
         'dataProvider' => $dataProvider,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
             'stock_id',
-            'name_ru',
-            'name_kz',
-            'name_en',
+            [
+                'attribute'=>'name_'.$suffix,
+                'format'=>'raw',
+            ],
+            ['attribute'=> 'categoriesOfStock',
+                'format'=>'raw',
+                'contentOptions'=>['class'=>'text-center align-mode'],
+                'headerOptions'=>['class'=>'text-center align-mode'],
+                'value'=> static function(Stock $model)use ($suffix) {
+                    $cur_gen =[];
+                    foreach ($model->categoriesOfStock as $cat)  {
+                        $cur_gen['en'][] = $cat->getCategories()->one()->name_en;
+                        $cur_gen['ru'][] = $cat->getCategories()->one()->name_ru;
+                        $cur_gen['kz'][] = $cat->getCategories()->one()->name_kz;
+                    }
+                    return implode(', ', $cur_gen[$suffix]??[]);
+                }],
             //'amount',
             //'created_at',
             //'updated_at',

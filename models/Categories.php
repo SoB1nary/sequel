@@ -53,7 +53,7 @@ class Categories extends \yii\db\ActiveRecord
      *
      * @return \yii\db\ActiveQuery|CategoriesOfStockQuery
      */
-    public function getCategoriesOfStocks()
+    public function getCategoriesOfStock()
     {
         return $this->hasMany(CategoriesOfStock::class, ['category_id' => 'id']);
     }

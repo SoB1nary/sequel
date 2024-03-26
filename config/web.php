@@ -48,7 +48,7 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'class' => 'codemix\localeurls\UrlManager',
-            'languages' => ['ru_RU', 'en_US', 'kk_KZ'],
+            'languages' => ['ru'=>'ru_RU', 'en'=>'en_US', 'kz'=>'kk_KZ'],
             'enableDefaultLanguageUrlCode' => 'true',
             'rules' => [
             ],

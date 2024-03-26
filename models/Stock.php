@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use app\models\Brands;
 
 /**
  * This is the model class for table "stock".
@@ -17,12 +18,16 @@ use Yii;
  * @property string $updated_at
  * @property int|null $available
  * @property int|null $brand_id
+ * @property string|null $desc
  *
  * @property Brands $brand
- * @property CategoriesOfStock[] $categoriesOfStocks
+ * @property CategoriesOfStock[] $categoriesOfStock
  */
 class Stock extends \yii\db\ActiveRecord
 {
+
+
+
     /**
      * {@inheritdoc}
      */
@@ -40,6 +45,7 @@ class Stock extends \yii\db\ActiveRecord
             [['stock_id', 'name_ru', 'created_at', 'updated_at'], 'required'],
             [['stock_id', 'amount', 'available', 'brand_id'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
+            [['desc'], 'string'],
             [['name_ru', 'name_kz', 'name_en'], 'string', 'max' => 255],
             [['brand_id'], 'exist', 'skipOnError' => true, 'targetClass' => Brands::class, 'targetAttribute' => ['brand_id' => 'id']],
         ];
@@ -61,17 +67,18 @@ class Stock extends \yii\db\ActiveRecord
             'updated_at' => Yii::t('app', 'Updated At'),
             'available' => Yii::t('app', 'Available'),
             'brand_id' => Yii::t('app', 'Brand ID'),
+            'desc' => Yii::t('app', 'Desc'),
         ];
     }
 
     /**
      * Gets query for [[Brand]].
      *
-     * @return \yii\db\ActiveQuery|BrandQuery
+     * @return \yii\db\ActiveQuery|BrandsQuery
      */
     public function getBrand()
     {
-        return $this->hasOne(Brand::class, ['id' => 'brand_id']);
+        return $this->hasOne(Brands::class, ['id' => 'brand_id']);
     }
 
     /**
@@ -79,7 +86,7 @@ class Stock extends \yii\db\ActiveRecord
      *
      * @return \yii\db\ActiveQuery|CategoriesOfStockQuery
      */
-    public function getCategoriesOfStocks()
+    public function getCategoriesOfStock(): CategoriesOfStockQuery|\yii\db\ActiveQuery
     {
         return $this->hasMany(CategoriesOfStock::class, ['stock_id' => 'stock_id']);
     }

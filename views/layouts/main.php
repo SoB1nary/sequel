@@ -45,9 +45,9 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
             ],
                 ['label' => 'Dropdown',
                     'items' => [
-                        ['label' => 'English', 'url' => array_merge(Yii::$app->request->get(), [Yii::$app->controller->getRoute(), 'language' => 'en_US'])],
-                        ['label' => 'Казакша', 'url' => array_merge(Yii::$app->request->get(), [Yii::$app->controller->getRoute(), 'language' => 'kk_KZ'])],
-                        ['label' => 'Русский', 'url' => array_merge(Yii::$app->request->get(), [Yii::$app->controller->getRoute(), 'language' => 'ru_RU'])],
+                        ['label' => 'English', 'url' => array_merge(Yii::$app->request->get(), [Yii::$app->controller->getRoute(), 'language' => 'en'])],
+                        ['label' => 'Казакша', 'url' => array_merge(Yii::$app->request->get(), [Yii::$app->controller->getRoute(), 'language' => 'kz'])],
+                        ['label' => 'Русский', 'url' => array_merge(Yii::$app->request->get(), [Yii::$app->controller->getRoute(), 'language' => 'ru'])],
                         ],
                     'linkOptions' => ['style' => 'color: #FFFFFF;'],
                     ],

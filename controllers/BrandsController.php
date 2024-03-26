@@ -11,7 +11,7 @@ use yii\filters\VerbFilter;
 /**
  * BrandsController implements the CRUD actions for Brands model.
  */
-class BrandsController extends Controller
+class BrandsController extends BaseController
 {
     /**
      * @inheritDoc

@@ -74,11 +74,11 @@ class CarModels extends \yii\db\ActiveRecord
     /**
      * Gets query for [[Brand]].
      *
-     * @return \yii\db\ActiveQuery|BrandQuery
+     * @return \yii\db\ActiveQuery|BrandsQuery
      */
     public function getBrand()
     {
-        return $this->hasOne(Brand::class, ['id' => 'brand_id']);
+        return $this->hasOne(Brands::class, ['id' => 'brand_id']);
     }
 
     /**
